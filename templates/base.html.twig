@@ -11,6 +11,9 @@
 
     {% block javascripts %}
       {% block importmap %}{{ importmap('app') }}{% endblock %}
+      <script type="module" >
+        import alienGreeting from "../assets/lib/alien-greeting";
+      </script>
     {% endblock %}
   </head>
   <body>
