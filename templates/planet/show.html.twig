@@ -33,10 +33,10 @@
         </tbody>
       </table>
 
-      <div class="mt-2">
-        <a data-turbo-frame="planet-info" href="{{ path('app_homepage') }}">&lt;-- Back</a>
+      <div class="mt-2 hidden turbo-frame:block">
+        <a href="{{ path('app_homepage') }}">&lt;-- Back</a>
 
-        <a href="{{ path('app_planet_edit', {id: planet.id}) }}">Edit</a>
+        <a data-turbo-frame="_top" href="{{ path('app_planet_edit', {id: planet.id}) }}">Edit</a>
       </div>
     </turbo-frame>
     <div class="flex space-x-4 mt-4">
