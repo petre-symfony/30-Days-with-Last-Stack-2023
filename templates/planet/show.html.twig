@@ -32,6 +32,12 @@
         </tr>
         </tbody>
       </table>
+
+      <div class="mt-2">
+        <a href="{{ path('app_homepage') }}">&lt;-- Back</a>
+
+        <a href="{{ path('app_planet_edit', {id: planet.id}) }}">Edit</a>
+      </div>
     </turbo-frame>
     <div class="flex space-x-4 mt-4">
       <a href="{{ path('app_planet_index') }}"
