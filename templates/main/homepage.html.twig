@@ -41,7 +41,11 @@
             <tr class="border-b border-gray-700 {% if loop.index is odd %} bg-gray-800 {% else %} bg-gray-700 {% endif %}">
               <td class="p-4">{{ voyage.purpose }}</td>
               <td class="px-2 whitespace-nowrap">
-                <div data-controller="popover" data-action="mouseenter->popover#show mouseleave->popover#hide">
+                <div
+                    data-controller="popover"
+                    data-action="mouseenter->popover#show mouseleave->popover#hide"
+                    class="relative"
+                >
                   <img
                       src="{{ asset('images/'~voyage.planet.imageFilename) }}"
                       alt="Image of {{ voyage.planet.name }}"
@@ -49,8 +53,18 @@
                   >
 
                   <template data-popover-target="content">
-                    <div data-popover-target="card">
-                      <p>This content is in a hidden template.</p>
+                    <div
+                        data-popover-target="card"
+                        class="max-w-sm rounded shadow-lg bg-gray-900 absolute left-0 bottom-10"
+                    >
+                      <div class="px-6 py-4">
+                        <h4>
+                          <a class="hover:text-blue-300 transition-colors duration-100" href="{{ path('app_planet_show', { id: voyage.planet.id }) }}">
+                            {{ voyage.planet.name }}
+                          </a>
+                        </h4>
+                        <small>{{ voyage.planet.lightYearsFromEarth|round|number_format }} ly</small>
+                      </div>
                     </div>
                   </template>
                 </div>
