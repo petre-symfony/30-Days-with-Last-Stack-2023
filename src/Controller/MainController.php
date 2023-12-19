@@ -4,6 +4,8 @@ namespace App\Controller;
 
 use App\Repository\PlanetRepository;
 use App\Repository\VoyageRepository;
+use Pagerfanta\Doctrine\ORM\QueryAdapter;
+use Pagerfanta\Pagerfanta;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -15,11 +17,13 @@ class MainController extends AbstractController {
 	public function homepage(
 		VoyageRepository                                            $voyageRepository,
 		PlanetRepository                                            $planetRepository,
-		#[MapQueryParameter('query')] string                        $query = null,
-		#[MapQueryParameter('query')] string                        $query = null,
+		#[MapQueryParameter] int                           $page = 1,
+		#[MapQueryParameter] string                        $query = null,
 		#[MapQueryParameter('planets', \FILTER_VALIDATE_INT)] array $searchPlanets = [],
 	): Response {
-		$voyages = $voyageRepository->findBySearch($query, $searchPlanets);
+		$pager = Pagerfanta::createForCurrentPageWithMaxPerPage(
+			new QueryAdapter($voyageRepository->findBySearch($query, $searchPlanets))
+		);
 
 		return $this->render('main/homepage.html.twig', [
 			'voyages' => $voyages,
