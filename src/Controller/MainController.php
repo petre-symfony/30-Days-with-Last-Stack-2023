@@ -22,11 +22,13 @@ class MainController extends AbstractController {
 		#[MapQueryParameter('planets', \FILTER_VALIDATE_INT)] array $searchPlanets = [],
 	): Response {
 		$pager = Pagerfanta::createForCurrentPageWithMaxPerPage(
-			new QueryAdapter($voyageRepository->findBySearch($query, $searchPlanets))
+			new QueryAdapter($voyageRepository->findBySearchQueryBuilder($query, $searchPlanets)),
+			$page,
+			10
 		);
 
 		return $this->render('main/homepage.html.twig', [
-			'voyages' => $voyages,
+			'voyages' => $pager,
 			'planets' => $planetRepository->findAll(),
 			'searchPlanets' => $searchPlanets,
 		]);
