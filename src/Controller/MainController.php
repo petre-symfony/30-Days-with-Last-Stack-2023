@@ -17,12 +17,17 @@ class MainController extends AbstractController {
 	public function homepage(
 		VoyageRepository                                            $voyageRepository,
 		PlanetRepository                                            $planetRepository,
-		#[MapQueryParameter] int                           $page = 1,
-		#[MapQueryParameter] string                        $query = null,
+		#[MapQueryParameter] int                                    $page = 1,
+		#[MapQueryParameter] string                                 $sort = 'leaveAt',
+		#[MapQueryParameter] string                                 $sortDirection = 'ASC',
+		#[MapQueryParameter] string                                 $query = null,
 		#[MapQueryParameter('planets', \FILTER_VALIDATE_INT)] array $searchPlanets = [],
 	): Response {
+		$validSorts = ['purpose', 'leaveAt'];
+		$sort = in_array($sort, $validSorts) ? $sort : 'leaveAt';
+
 		$pager = Pagerfanta::createForCurrentPageWithMaxPerPage(
-			new QueryAdapter($voyageRepository->findBySearchQueryBuilder($query, $searchPlanets)),
+			new QueryAdapter($voyageRepository->findBySearchQueryBuilder($query, $searchPlanets, $sort, $sortDirection)),
 			$page,
 			10
 		);
@@ -31,6 +36,8 @@ class MainController extends AbstractController {
 			'voyages' => $pager,
 			'planets' => $planetRepository->findAll(),
 			'searchPlanets' => $searchPlanets,
+			'sort' => $sort,
+			'sortDirection' => $sortDirection
 		]);
 	}
 }
