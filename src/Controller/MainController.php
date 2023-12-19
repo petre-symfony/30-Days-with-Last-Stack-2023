@@ -16,6 +16,7 @@ class MainController extends AbstractController {
 		VoyageRepository                                            $voyageRepository,
 		PlanetRepository                                            $planetRepository,
 		#[MapQueryParameter('query')] string                        $query = null,
+		#[MapQueryParameter('query')] string                        $query = null,
 		#[MapQueryParameter('planets', \FILTER_VALIDATE_INT)] array $searchPlanets = [],
 	): Response {
 		$voyages = $voyageRepository->findBySearch($query, $searchPlanets);
