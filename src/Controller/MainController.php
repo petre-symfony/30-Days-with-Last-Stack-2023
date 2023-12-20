@@ -23,7 +23,6 @@ class MainController extends AbstractController {
 		#[MapQueryParameter] string                                 $query = null,
 		#[MapQueryParameter('planets', \FILTER_VALIDATE_INT)] array $searchPlanets = [],
 	): Response {
-		sleep(1);
 		$validSorts = ['purpose', 'leaveAt'];
 		$sort = in_array($sort, $validSorts) ? $sort : 'leaveAt';
 
