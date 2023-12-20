@@ -25,9 +25,9 @@ document.addEventListener("turbo:load", () => {
 });
 
 document.addEventListener("turbo:before-frame-render", (event) => {
-  if (shouldPerformTransition()) {
+  if (shouldPerformTransition() && !event.target.hasAttribute('data-skip-transition')) {
     event.preventDefault();
-    
+
     skipNextRenderTransition = true;
     setTimeout(() => {
       skipNextRenderTransition = false;
