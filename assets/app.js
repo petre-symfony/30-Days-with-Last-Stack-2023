@@ -22,3 +22,13 @@ document.addEventListener("turbo:load", () => {
   // View Transitions don't play nicely with Turbo cache
   if (shouldPerformTransition()) Turbo.cache.exemptPageFromCache();
 });
+
+document.addEventListener("turbo:before-frame-render", (event) => {
+  if (shouldPerformTransition()) {
+    event.preventDefault();
+
+    performTransition(event.target, event.detail.newFrame, async () => {
+      await event.detail.resume();
+    });
+  }
+});
