@@ -8,8 +8,9 @@ alienGreeting('Give us all your candy!', false);
 console.log('This log comes from assets/app.js - welcome to AssetMapper! 🎉');
 // Turbo.session.drive = false;
 
+let skipNextRenderTransition = false;
 document.addEventListener("turbo:before-render", (event) => {
-  if (shouldPerformTransition()) {
+  if (shouldPerformTransition() && !skipNextRenderTransition) {
     event.preventDefault();
 
     performTransition(document.body, event.detail.newBody, async () => {
@@ -26,6 +27,11 @@ document.addEventListener("turbo:load", () => {
 document.addEventListener("turbo:before-frame-render", (event) => {
   if (shouldPerformTransition()) {
     event.preventDefault();
+    
+    skipNextRenderTransition = true;
+    setTimeout(() => {
+      skipNextRenderTransition = false;
+    }, 100)
 
     performTransition(event.target, event.detail.newFrame, async () => {
       await event.detail.resume();
