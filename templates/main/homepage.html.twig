@@ -54,7 +54,7 @@
         >
         <div class="whitespace-nowrap m-2 mr-4">{{ voyages|length }} results</div>
       </form>
-      <turbo-frame id="voyage-list">
+      <turbo-frame id="voyage-list" class="aria-busy:opacity-50 aria-busy:blur-sm transition-all">
         <div class="bg-gray-800 p-4 rounded">
           <table class="w-full text-white">
             <thead>
