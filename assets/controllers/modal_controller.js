@@ -10,4 +10,10 @@ export default class extends Controller {
     this.dialogTarget.close();
     document.body.classList.remove('overflow-hidden', 'blur-sm');
   }
+
+  clickOutside(event) {
+    if (event.target === this.dialogTarget) {
+      this.dialogTarget.close();
+    }
+  }
 }
