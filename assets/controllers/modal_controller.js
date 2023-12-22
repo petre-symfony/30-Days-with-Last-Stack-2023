@@ -5,4 +5,9 @@ export default class extends Controller {
     this.dialogTarget.showModal();
     document.body.classList.add('overflow-hidden');
   }
+
+  close() {
+    this.dialogTarget.close();
+    document.body.classList.remove('overflow-hidden');
+  }
 }
