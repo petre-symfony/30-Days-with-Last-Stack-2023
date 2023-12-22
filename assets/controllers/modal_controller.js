@@ -3,11 +3,11 @@ export default class extends Controller {
   static targets = ['dialog'];
   open() {
     this.dialogTarget.showModal();
-    document.body.classList.add('overflow-hidden');
+    document.body.classList.add('overflow-hidden', 'blur-sm');
   }
 
   close() {
     this.dialogTarget.close();
-    document.body.classList.remove('overflow-hidden');
+    document.body.classList.remove('overflow-hidden', 'blur-sm');
   }
 }
