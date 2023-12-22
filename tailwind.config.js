@@ -8,10 +8,20 @@ module.exports = {
     "./vendor/tales-from-a-dev/flowbite-bundle/templates/**/*.html.twig"
   ],
   theme: {
-    extend: {},
+    extend: {
+      animation: {
+        'fade-in': 'fadeIn .5s ease-out;',
+      },
+      keyframes: {
+        fadeIn: {
+          '0%': {opacity: 0},
+          '100%': {opacity: 1},
+        },
+      },
+    },
   },
   plugins: [
-    plugin(function({ addVariant }) {
+    plugin(function ({addVariant}) {
       addVariant('turbo-frame', 'turbo-frame[src] &')
     })
   ],
