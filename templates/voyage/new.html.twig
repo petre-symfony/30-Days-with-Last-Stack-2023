@@ -25,9 +25,7 @@
 {% block stream_success %}
   <turbo-stream action="prepend" targets="#voyage-list tbody">
     <template>
-      <tr>
-        <td>{{ voyage.purpose }}</td>
-      </tr>
+      {{ include('voyage/_row.html.twig') }}
     </template>
   </turbo-stream>
 {% endblock %}
