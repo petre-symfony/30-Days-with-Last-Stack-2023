@@ -83,6 +83,9 @@
               <turbo-stream action="append" target="flash-container">
                 <template>{{ include('_flashes.html.twig') }}</template>
               </turbo-stream>
+              {% for stream in app.flashes('stream') %}
+                {{ stream|raw }}
+              {% endfor %}
             </turbo-frame>
           </div>
         </div>
@@ -107,6 +110,6 @@
     <div id="flash-container">
       {{ include('_flashes.html.twig') }}
     </div>
-  
+
   </body>
 </html>
