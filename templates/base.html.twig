@@ -59,10 +59,6 @@
       </footer>
     </div>
 
-    <div id="flash-container">
-      {{ include('_flashes.html.twig') }}
-    </div>
-
     <div
         data-controller="modal"
         data-action="turbo:before-cache@window->modal#close"
@@ -107,5 +103,10 @@
         </div>
       </template>
     </div>
+
+    <div id="flash-container">
+      {{ include('_flashes.html.twig') }}
+    </div>
+  
   </body>
 </html>
