@@ -1,5 +1,5 @@
-<button {{ attributes.defaults({
+<{{ tag }} {{ attributes.defaults({
   class: 'px-4 py-2 border border-transparent text-sm font-medium rounded-md '~this.variantClasses
 }) }}>
   {% block content %}{% endblock %}
-</button>
+</{{ tag }}>
