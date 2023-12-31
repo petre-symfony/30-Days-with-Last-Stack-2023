@@ -6,4 +6,5 @@ use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
 
 #[AsTwigComponent]
 final class Button {
+	public string $variant = 'default';
 }
