@@ -67,6 +67,14 @@ class VoyageController extends AbstractController {
 
 			$this->addFlash('success', 'Voyage updated!');
 
+			if ($request->headers->has('turbo-frame')) {
+				$stream = $this->renderBlockView('voyage/edit.html.twig', 'stream_success', [
+					'voyage' => $voyage
+				]);
+
+				$this->addFlash('stream', $stream);
+			}
+
 			return $this->redirectToRoute('app_voyage_edit', ['id' => $voyage->getId()], Response::HTTP_SEE_OTHER);
 		}
 
