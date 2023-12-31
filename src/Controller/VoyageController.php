@@ -67,7 +67,7 @@ class VoyageController extends AbstractController {
 
 			$this->addFlash('success', 'Voyage updated!');
 
-			return $this->redirectToRoute('app_voyage_index', [], Response::HTTP_SEE_OTHER);
+			return $this->redirectToRoute('app_voyage_edit', ['id' => $voyage->getId()], Response::HTTP_SEE_OTHER);
 		}
 
 		return $this->render('voyage/edit.html.twig', [
