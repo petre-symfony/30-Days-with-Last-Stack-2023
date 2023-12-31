@@ -26,6 +26,14 @@
       <h3 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">
         Delete this thrilling voyage???
       </h3>
+
+      <div class="flex justify-between">
+        <form method="dialog">
+          <twig:Button variant="link">Cancel</twig:Button>
+        </form>
+
+        {{ include('voyage/_delete_form.html.twig') }}
+      </div>
     </twig:Modal>
   </td>
 </tr>
