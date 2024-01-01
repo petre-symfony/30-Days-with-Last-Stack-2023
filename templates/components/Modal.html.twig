@@ -1,4 +1,4 @@
-{% props allowSmallWidth=false, closeButton=false %}
+{% props allowSmallWidth=false, closeButton=false, padding='p-5' %}
 <div {{ attributes.defaults({
   'data-controller': 'modal',
   'data-action': 'turbo:before-cache@window->modal#close'
@@ -14,7 +14,7 @@
           "
       data-action="close->modal#close click->modal#clickOutside"
   >
-    <div class="flex grow p-5">
+    <div class="flex grow {{ padding }}">
       <div class="grow overflow-auto p-1">
         {% block content %}{% endblock %}
       </div>
