@@ -27,7 +27,9 @@ class VoyageControllerTest extends AppPantherTestCase {
 			->fillField('Purpose', 'Test voyage')
 			->selectFieldOption('Planet', 'Earth')
 			->click('Save')
+			->waitForTurboFrameLoad()
 			->assertElementCount('table tbody tr', 2)
+			->assertNotSee('dialog[open]')
 			->assertSee('Bon voyage');
 	}
 }
