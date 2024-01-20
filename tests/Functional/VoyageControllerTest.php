@@ -23,6 +23,7 @@ class VoyageControllerTest extends PantherTestCase {
 		$this->pantherBrowser()
 			->visit('/')
 			->click('Voyages')
+			->ddScreenshot()
 			->click('New Voyage')
 			->fillField('Purpose', 'Test voyage')
 			->selectFieldOption('Planet', 'Earth')
