@@ -18,7 +18,10 @@ class SearchSiteTest extends KernelTestCase {
 			'purpose' => 'first 5 voyages'
 		]);
 		VoyageFactory::createOne();
-		
+
 		$testComponent = $this->createLiveComponent('SearchSite');
+		$this->assertCount(0, $testComponent->render()->crawler()->filter('a'));
+		$testComponent->set('query', 'first 5');
+		$this->assertCount(5, $testComponent->render()->crawler()->filter('a'));
 	}
 }
