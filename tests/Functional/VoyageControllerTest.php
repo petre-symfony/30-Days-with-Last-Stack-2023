@@ -20,9 +20,14 @@ class VoyageControllerTest extends PantherTestCase {
 		]);
 		VoyageFactory::createOne();
 
-		$this->pantherBrowser()
+		$browser = $this->pantherBrowser()
 			->visit('/')
-			->click('Voyages')
+			->click('Voyages');
+
+		$browser->client()->waitFor('html[aria-busy="true"]');
+		$browser->client()->waitFor('html:not([aria-busy])');
+		
+		$browser->ddScreenshot()
 			->click('New Voyage')
 			->fillField('Purpose', 'Test voyage')
 			->selectFieldOption('Planet', 'Earth')
