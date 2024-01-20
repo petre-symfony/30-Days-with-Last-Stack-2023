@@ -20,7 +20,7 @@ class ButtonTest extends KernelTestCase {
 		$rendered = $this->renderTwigComponent('Button', [
 			'variant' => 'success'
 		], '<span>Click me!</span>');
-		
+
 		$this->assertSame('Click me!', $rendered->crawler()->filter('span')->text());
 	}
 }
