@@ -22,6 +22,7 @@ class VoyageControllerTest extends PantherTestCase {
 
 		$this->pantherBrowser()
 			->visit('/')
+			->pause()
 			->click('Voyages')
 			->ddScreenshot()
 			->click('New Voyage')
