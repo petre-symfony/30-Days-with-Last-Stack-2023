@@ -20,7 +20,7 @@ class VoyageControllerTest extends WebTestCase {
 		]);
 		VoyageFactory::createOne();
 
-		$this->browser()
+		$this->pantherBrowser()
 			->visit('/')
 			->click('Voyages')
 			->click('New Voyage')
