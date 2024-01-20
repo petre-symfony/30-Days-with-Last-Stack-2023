@@ -23,6 +23,7 @@ class VoyageControllerTest extends AppPantherTestCase {
 			->click('Voyages')
 			->waitForPageLoad()
 			->click('New Voyage')
+			->waitForDialog()
 			->fillField('Purpose', 'Test voyage')
 			->selectFieldOption('Planet', 'Earth')
 			->click('Save')
