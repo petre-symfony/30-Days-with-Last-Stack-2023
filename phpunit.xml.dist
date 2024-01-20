@@ -18,6 +18,7 @@
         <server name="SYMFONY_PROJECT_DEFAULT_ROUTE_URL" value="" />
         <server name="PANTHER_APP_ENV" value="test" />
         <server name="PANTHER_WEB_SERVER_ROUTER" value="../tests/router.php" />
+        <server name="PANTHER_BROWSER_CLASS" value="App\Tests\AppBrowser" />
     </php>
 
     <testsuites>

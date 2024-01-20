@@ -24,9 +24,11 @@ class VoyageControllerTest extends PantherTestCase {
 			->visit('/')
 			->click('Voyages');
 
+		dd(get_class($browser));
+
 		$browser->client()->waitFor('html[aria-busy="true"]');
 		$browser->client()->waitFor('html:not([aria-busy])');
-		
+
 		$browser->ddScreenshot()
 			->click('New Voyage')
 			->fillField('Purpose', 'Test voyage')
