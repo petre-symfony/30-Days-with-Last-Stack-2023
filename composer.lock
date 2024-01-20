@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "edff3d1f70c0b19ed597beed3331e1ca",
+    "content-hash": "c73983db69d2dad28c080c12cf54a636",
     "packages": [
         {
             "name": "babdev/pagerfanta-bundle",
@@ -7060,6 +7060,56 @@
                 "source": "https://github.com/minkphp/Mink/tree/v1.11.0"
             },
             "time": "2023-12-09T11:23:23+00:00"
+        },
+        {
+            "name": "dbrekelmans/bdi",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dbrekelmans/bdi.git",
+                "reference": "e235f7d59ba7113ebb784628614bd768e4660764"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dbrekelmans/bdi/zipball/e235f7d59ba7113ebb784628614bd768e4660764",
+                "reference": "e235f7d59ba7113ebb784628614bd768e4660764",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "ext-zip": "*",
+                "ext-zlib": "*",
+                "php": "^7.4|^8.0"
+            },
+            "default-branch": true,
+            "bin": [
+                "bdi",
+                "bdi.phar"
+            ],
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Daniël Brekelmans",
+                    "homepage": "https://github.com/dbrekelmans"
+                },
+                {
+                    "name": "Contributors",
+                    "homepage": "https://github.com/dbrekelmans/bdi/graphs/contributors"
+                }
+            ],
+            "description": "PHAR distribution of dbrekelmans/browser-driver-installer.",
+            "homepage": "https://github.com/dbrekelmans/bdi",
+            "keywords": [
+                "browser-driver-installer"
+            ],
+            "support": {
+                "source": "https://github.com/dbrekelmans/bdi/tree/1.1.0"
+            },
+            "time": "2023-10-04T13:36:08+00:00"
         },
         {
             "name": "doctrine/data-fixtures",
