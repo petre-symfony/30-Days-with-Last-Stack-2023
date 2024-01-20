@@ -15,7 +15,13 @@ class ButtonTest extends KernelTestCase {
 		]);
 
 		$this->assertInstanceOf(Button::class, $component);
-		dump($component);
 		$this->assertSame('success', $component->variant);
+
+		$rendered = $this->renderTwigComponent('Button', [
+			'variant' => 'success'
+		], '<span>Click me!</span>');
+
+		dump($rendered);
+		$this->assertSame('Click me!', $rendered->crawler()->filter('span')->text());
 	}
 }
