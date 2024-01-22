@@ -54,9 +54,5 @@ return [
 	],
 	'@popperjs/core' => [
 		'version' => '2.11.8',
-	],
-	'flowbite/dist/flowbite.min.css' => [
-		'version' => '2.2.1',
-		'type' => 'css',
-	],
+	]
 ];
