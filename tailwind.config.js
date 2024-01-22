@@ -27,6 +27,7 @@ module.exports = {
     },
   },
   plugins: [
+    require('flowbite/plugin'),
     plugin(function ({addVariant}) {
       addVariant('turbo-frame', 'turbo-frame[src] &');
       addVariant('modal', 'dialog &');
