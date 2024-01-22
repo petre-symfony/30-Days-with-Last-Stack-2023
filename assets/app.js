@@ -1,6 +1,7 @@
 import './bootstrap.js';
 import './styles/app.css'
 import alienGreeting from './lib/alien-greeting.js';
+import 'flowbite';
 //import * as Turbo from '@hotwired/turbo';
 import { shouldPerformTransition, performTransition } from "turbo-view-transitions";
 
