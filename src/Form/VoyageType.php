@@ -19,6 +19,9 @@ class VoyageType extends AbstractType {
 			->add('purpose')
 			->add('leaveAt', DateType::class, [
 				'widget' => 'single_text',
+				'attr' => [
+					'data-controller' => 'datepicker'
+				]
 			])
 			->add('planet', null, [
 				'choice_label' => 'name',
