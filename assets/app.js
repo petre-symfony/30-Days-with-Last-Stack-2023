@@ -1,7 +1,7 @@
 import './bootstrap.js';
 import './styles/app.css'
 import alienGreeting from './lib/alien-greeting.js';
-import 'flowbite';
+import { initFlowbite } from 'flowbite';
 //import * as Turbo from '@hotwired/turbo';
 import { shouldPerformTransition, performTransition } from "turbo-view-transitions";
 
@@ -38,4 +38,11 @@ document.addEventListener("turbo:before-frame-render", (event) => {
       await event.detail.resume();
     });
   }
+});
+
+document.addEventListener('turbo:render', () => {
+  initFlowbite();
+});
+document.addEventListener('turbo:frame-render', () => {
+  initFlowbite();
 });
