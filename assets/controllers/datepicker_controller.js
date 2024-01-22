@@ -9,6 +9,7 @@ export default class extends Controller {
     this.datepicker = new Datepicker(this.element, {
       format: 'yyyy-mm-dd',
       autohide: true,
+      container: document.querySelector('dialog[open]') ? 'dialog[open]' : 'body'
     });
   }
   disconnect() {
